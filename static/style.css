@@ -1,0 +1,216 @@
+body {
+    font-family: 'Yu Gothic UI', 'Meiryo', sans-serif;
+    background-color: #0d3d14; /* Dark green */
+    color: white;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.frame {
+    width: 100%;
+    height: 100%;
+}
+
+/* --- Setup Screen --- */
+#setup-frame {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.setup-container {
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+.setup-container h1 {
+    font-size: 2.5em;
+    color: #ffd700; /* Gold */
+    margin-bottom: 10px;
+}
+
+.input-group {
+    margin: 15px 0;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.input-group input {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 150px;
+}
+
+#start-game-btn {
+    background-color: #4CAF50; /* Green */
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#start-game-btn:hover {
+    background-color: #45a049;
+}
+
+/* --- Game Screen --- */
+#game-frame {
+    display: none; /* Initially hidden */
+    flex-direction: column;
+}
+
+#poker-table {
+    background-color: #1a5221; /* Poker table green */
+    border: 15px solid #532e1c; /* Wood border */
+    border-radius: 50%;
+    width: 90vh;
+    height: 90vh;
+    max-width: 700px;
+    max-height: 700px;
+    position: relative;
+    margin: 20px auto;
+    box-shadow: inset 0 0 50px rgba(0,0,0,0.5);
+}
+
+#center-info {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+#pot {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #ffd700; /* Gold */
+}
+
+#community-cards .card {
+    font-size: 1.5em;
+    margin: 0 5px;
+}
+
+#players-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.player-seat {
+    position: absolute;
+    width: 120px;
+    background-color: rgba(0, 0, 0, 0.4);
+    border: 2px solid #333;
+    border-radius: 10px;
+    padding: 5px;
+    text-align: center;
+    transition: all 0.3s;
+}
+
+.player-seat.active {
+    border-color: #ffd700; /* Gold */
+    box-shadow: 0 0 15px #ffd700;
+}
+
+.player-name {
+    font-weight: bold;
+}
+
+.player-chips {
+    font-size: 0.9em;
+    color: #ddd;
+}
+
+.player-bet {
+    font-size: 0.9em;
+    color: #ffc107;
+}
+
+.player-status {
+    font-style: italic;
+    color: #aaa;
+}
+
+.player-hand {
+    margin-top: 5px;
+}
+
+.card {
+    display: inline-block;
+    padding: 5px 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: white;
+    color: black;
+    font-weight: bold;
+    font-family: 'Arial', sans-serif;
+}
+
+.card.hidden {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="70" height="100" viewBox="0 0 70 100"><rect width="70" height="100" fill="%230000ff" rx="5"/><rect x="5" y="5" width="60" height="90" fill="none" stroke="%23ffffff" stroke-width="2"/></svg>');
+    background-size: cover;
+    color: transparent;
+}
+
+.card.suit-♠, .card.suit-♣ { color: black; }
+.card.suit-♥, .card.suit-♦ { color: red; }
+
+/* --- Controls --- */
+#controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: rgba(0, 0, 0, 0.2);
+    width: 100%;
+    box-sizing: border-box;
+    position: absolute;
+    bottom: 0;
+}
+
+#action-buttons .action-btn {
+    padding: 10px 20px;
+    font-size: 1em;
+    margin: 0 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+#action-buttons .action-btn:disabled {
+    background-color: #555;
+    cursor: not-allowed;
+}
+
+#log-container {
+    width: 50%;
+    height: 100px;
+}
+
+#log-box {
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 1px solid #444;
+    border-radius: 5px;
+    height: 100%;
+    overflow-y: scroll;
+    padding: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9em;
+}
